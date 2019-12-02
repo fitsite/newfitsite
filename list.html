@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header></header>
+
+    <main>
+        <section>
+            <!-- form for user information -->
+            <form id="fitPlan">
+                <fieldset>
+                    <label for="name"> User Name:</label>
+                    <input type="text" id="name" placeholder="enter your name please" required />
+                    <br>
+                    
+                    <label for="age">User Age:</label>
+                    <input type="number" id="age" placeholder="enter your age please" value min=12 max=60 required />
+                    <br />
+                    <label for="weight">User Weight:</label>
+                    <input type="number" id="weight" placeholder="enter your Weight in kg please" value min=25
+                        required />
+
+                        <br />
+                    <label for="height">User Height:</label>
+                    <input type="number" step="0.01" id="height" placeholder="enter your Height in meters please" value
+                    min=1 max=2.5 required />
+                    <br />
+                    <label for="activitiesHours"> Daily Activities:</label>
+                    <input type="number" id="activitiesHours" placeholder="how many hours you are active" value min=1
+                    value max=20 required />
+                    <br />
+                    <!-- <label for="target">User Target:</label>
+                        <input type="checkbox" id="lose" name="lose">Lose Weight
+                    <input type="checkbox" id="gain" name="Gain Weight"> Gain Weight
+                    <input type="checkbox" id="Maintenance" name="Gain Weight">Maintenance -->
+                    <label for="target">User Target:</label>
+                <select name="target" id="target" required>
+                    <option value="lose" id="lose">Lose Weight</option >
+                    <option value="gain" id="gain">Gain Weight</option >
+                    <option value="Maintenance" id="maintenance">Maintenance</option >
+    
+                </select>
+                    <br>
+                    <button>Result</button>
+                </fieldset>
+        </section>
+    
+
+        <section id="response">
+
+        </section>
+
+
+        </form>
+    </main>
+
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
