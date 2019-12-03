@@ -1,0 +1,50 @@
+  <section>
+            <!-- form for user information -->
+            <form id="fitPlan">
+                <!-- <fieldset> -->
+                    
+                    <label for="name" class="label">
+                        <span>Name</span>
+                    </label>
+                    <input type="text" class="input" id="name" autocomplete="off" required />
+                    <br>
+
+                    <label for="age" class="label">
+                        <span>Age</span>
+                    </label>
+                    <input type="number" class="input" id="age" placeholder="enter your age please" value min=12 max=60 required />
+                    <br />
+                    <label for="weight" class="label">
+                        <span>Weight</span>
+                    </label>
+                    <input type="number" class="input" id="weight" placeholder="enter your Weight in kg please" value min=25
+                        required />
+
+                    <br />
+                    <label for="height" class="label">
+                        <span>Height</span>
+                    </label>
+                    <input type="number" step="0.01" class="input" id="height" placeholder="enter your Height in meters please" value
+                        min=1 max=2.5 required />
+                    <br />
+                    <label for="activitiesHours" class="label">
+                        <span>Daily Activities</span>
+                    </label>
+                    <input type="number" class="input" id="activitiesHours" placeholder="how many hours you are active" value min=1
+                        value max=20 required />
+                    <br />
+                    <!-- <label for="target">User Target:</label>
+                        <input type="checkbox" id="lose" name="lose">Lose Weight
+                    <input type="checkbox" id="gain" name="Gain Weight"> Gain Weight
+                    <input type="checkbox" id="Maintenance" name="Gain Weight">Maintenance -->
+                    <label for="target" class="label">User Target:</label>
+                    <select name="target" id="target" required>
+                        <option value="lose" id="lose">Lose Weight</option>
+                        <option value="gain" id="gain">Gain Weight</option>
+                        <option value="Maintenance" id="maintenance">Maintenance</option>
+
+                    </select>
+                    <br>
+                    <button>Result</button>
+                <!-- </fieldset> -->
+        </section>
