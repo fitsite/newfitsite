@@ -4,8 +4,10 @@ var calories = 0 ;
 var Fitness = [];
 var workout = [];
 var quantities = [];
+// var advices = [];
 var form = document.getElementById('fitPlan');
 var sectionEl = document.getElementById('response');
+// var sectionEl = document.getElementById('health');
 
 //  Constructor
 function Plan(name, age, weight, height, activitiesHours, target) {
@@ -45,12 +47,12 @@ Plan.prototype.caloriesCalculation = function () {
 // Function for workout by age and calories
 Plan.prototype.programWorkOut = function () {
   if ( this.age < 18) {
-    workout.push('Each exercise 3 sets and 10 reps','Barbell Squat', 'ABS sit-up,Chest butterfly','Leg press','Push-ups','Plank "30sec"','Lunge');
+    workout.push('Each exercise 3 sets and 10 reps','Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "35sec"','Lunge');
   }
   else if (18 <= this.age < 40) {
-    workout.push('Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "60sec"','Lunge');
+    workout.push('Each exercise 4 sets and 12 reps','Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "60sec"','Lunge');
   } else if (40 <= this.age) {
-    workout.push('Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "25sec"','Lunge');
+    workout.push('Each exercise 3 sets and 10 reps','Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "30sec"','Lunge');
   }
 // console.log(workout)
 };
@@ -129,6 +131,20 @@ function handleSubmit(event) {
   var target = event.target.target.value;
   var newplan = new Plan(name,age,weight,height,activitiesHours, target);
   newplan.render();
+  
+  ///////////CHANGES WERE MADE HERE/////////////////////////
+  ///////////BUTTON ADDED
+  
+  var buttonToHealth = document.createElement('button');
+  // buttonToHealth.textContent = 'Take Your Advice';
+  sectionEl.appendChild(buttonToHealth);
+  var link = document.createElement('a');
+  link.setAttribute('href', 'health.html');
+  link.textContent= 'Take Your Advice';
+  buttonToHealth.appendChild(link);
+  // buttonToHealth.setAttribute ('action',"health.html")
+  
+  ///////////CHANGES WERE MADE HERE/////////////////////////
 }
 
 
@@ -164,14 +180,15 @@ Plan.prototype.render= function(){
   for (var i=0; i <= workout.length-1; i++){
   var liEl = document.createElement('li');
   sectionEl.appendChild(liEl);
-  liEl.textContent= `${workout[i]}`;
+  // console.log(Fitness.name);
+  // console.log(Plan.caloriesPerDay);
   }
+  
 };
 // console.log(Fitness.name);
 // console.log(Plan.caloriesPerDay);
 
-
-
+// }}
 // Local storage
 // function updateUsersName() {
 //     var Users = JSON.stringify(Fitness);
