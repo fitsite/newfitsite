@@ -1,0 +1,88 @@
+body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: black;
+}
+main{
+    width: 98%;
+    background-color: white;
+}
+header{
+    background-color: white;
+    width: 98%;
+}
+.form {
+    width: 500px;
+    position: relative;
+    height: 50px;
+    overflow: hidden; 
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 5px;
+}
+.form input{
+width: 100%;
+height: 100%;
+color: #595f6e;
+padding-top: 20px;
+border: none;
+outline: none;
+
+}
+.form label {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+.form label::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid #5fa8d3;
+    left: 0px;
+    bottom: -2px;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.content{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+.form input:focus + .label .content, .form input:valid + .label .content{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #5fa8d3;
+
+}
+.form input:focus + .label::after , .form input:valid + .label ::after{
+    transform: translateX(0%);
+}
+button{
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 25px;
+    border: none;
+}
+hr{
+    height: 3px solid black;
+}
+h1{
+    font-size: 20px;
+}
+#response{
+    font-family: sans-serif;
+    font-weight: bold;
+}
