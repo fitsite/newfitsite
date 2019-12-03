@@ -3,8 +3,10 @@
 var Fitness = [];
 var workout = [];
 var quantities = [];
+// var advices = [];
 var form = document.getElementById('fitPlan');
 var sectionEl = document.getElementById('response');
+// var sectionEl = document.getElementById('health');
 
 //  Constructor
 function Plan(name, age, weight, height, activitiesHours) {
@@ -43,12 +45,12 @@ Plan.prototype.caloriesCalculation = function () {
 // Function for workout by age and calories
 Plan.prototype.programWorkOut = function () {
   if ( this.age < 18) {
-    workout.push('Each exercise 3 sets and 10 reps,Barbell Squat, ABS sit-up,Chest butterfly,Leg press,Push-ups,Plank "30sec",Lunge');
+    workout.push('Each exercise 3 sets and 10 reps','Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "35sec"','Lunge');
   }
   else if (18 <= this.age < 40) {
-    workout.push('Barbell Squat, ABS sit-up,Chest butterfly,Leg press,Push-ups,Plank "60sec",Lunge');
+    workout.push('Each exercise 4 sets and 12 reps','Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "60sec"','Lunge');
   } else if (40 <= this.age) {
-    workout.push('Barbell Squat, ABS sit-up,Chest butterfly,Leg press,Push-ups,Plank "25sec",Lunge');
+    workout.push('Each exercise 3 sets and 10 reps','Barbell Squat', 'ABS sit-up','Chest butterfly','Leg press','Push-ups','Plank "30sec"','Lunge');
   }
 
 };
@@ -117,6 +119,20 @@ function handleSubmit(event) {
   // var target = event.target.target.value;
   var newplan = new Plan(name,age,weight,height,activitiesHours,);
   newplan.render();
+  
+  ///////////CHANGES WERE MADE HERE/////////////////////////
+  ///////////BUTTON ADDED
+  
+  var buttonToHealth = document.createElement('button');
+  // buttonToHealth.textContent = 'Take Your Advice';
+  sectionEl.appendChild(buttonToHealth);
+  var link = document.createElement('a');
+  link.setAttribute('href', 'health.html');
+  link.textContent= 'Take Your Advice';
+  buttonToHealth.appendChild(link);
+  // buttonToHealth.setAttribute ('action',"health.html")
+  
+  ///////////CHANGES WERE MADE HERE/////////////////////////
 }
 // console.log(this.target.lose.checked);
 form.addEventListener('submit', handleSubmit);
@@ -132,11 +148,30 @@ Plan.prototype.render= function(){
   var li2El = document.createElement('li');
   sectionEl.appendChild(li2El);
   li2El.textContent= `Enjoy Our Free workOut Program: ${workout}`;
-
+  
 };
 
 
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   var name = event.target.name.value;
+//   var age = parseInt(event.target.age.value);
+//   var weight = parseInt(event.target.weight.value);
+//   var height = parseFloat(event.target.height.value); 
+//   // var lose = event.target.lose.checked;
+//   // var gain = event.target.gain.checked;
+//   // var Maintenance = event.target.Maintenance.checked;
 
+
+//   var activitiesHours = parseInt(event.target.activitiesHours.value);
+//   // var target = event.target.target.value;
+//   var newplan = new Plan(name,age,weight,height,activitiesHours,);
+//   newplan.render();
+// }
+// // console.log(this.target.lose.checked);
+// form.addEventListener('submit', handleSubmit);
+
+// }}
 // Local storage
 // function updateUsersName() {
 //     var Users = JSON.stringify(Fitness);
