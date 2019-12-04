@@ -13,6 +13,7 @@ var advices = [];
 var form = document.getElementById('fitPlan');
 var sectionEl = document.getElementById('response');
 var sectionUl = document.getElementById('health');
+var sectionEl7 = document.getElementById('storage');
 
 //  Constructor
 function Plan(name, age, weight, height, activitiesHours, target) {
@@ -118,14 +119,15 @@ Plan.prototype.rateCalculate = function () {
   console.log(Protein);
   console.log(carbs);
   console.log(fats);
-  console.log(quantities)
+  console.log(quantities);
   // console.log('p', Protein, 'c', carbs, 'f', fats);
   // console.log(quantities)
 };
-var labels = ['Protein', 'Carbs', 'Fat']
+var labels = ['Protein', 'Carbs', 'Fat'];
 
 function handleSubmit(event) {
   event.preventDefault();
+  console.log("adsdsadsads111111ad")
   var name = event.target.name.value;
   var age = parseInt(event.target.age.value);
   var weight = parseInt(event.target.weight.value);
@@ -138,15 +140,19 @@ function handleSubmit(event) {
   var activitiesHours = parseInt(event.target.activitiesHours.value);
   var target = event.target.target.value;
   var newplan = new Plan(name, age, weight, height, activitiesHours, target);
+  localStorage.setItem("name",JSON.stringify(name));
   newplan.render();
+  
   form.reset();
+  // updateUsersName();
+  // console.log("adsdsadsadsad")
   ///////////CHANGES WERE MADE HERE/////////////////////////
   ///////////BUTTON ADDED
-
-
+  
+  
   // if (target === 'lose') {
-  //   var sectionNew = document.getElementById('health');
-  //   var loseP = document.createElement('p');
+    //   var sectionNew = document.getElementById('health');
+    //   var loseP = document.createElement('p');
   //   loseP.textContent = 'TESTING OUR CONTENT I WANT TO LOSE WEIGHT';
   //   sectionNew.appendChild(loseP);
   //   console.log(loseP);}
@@ -178,7 +184,7 @@ function handleSubmit(event) {
     buttonToHealth.appendChild(link);
     break;
 
-     case 'maintenance':
+  case 'maintenance':
     var buttonToHealth = document.createElement('button');
     sectionEl.appendChild(buttonToHealth);
     var link = document.createElement('a');
@@ -186,8 +192,8 @@ function handleSubmit(event) {
     link.setAttribute('href', 'main.html');
     buttonToHealth.appendChild(link);
     break;
-    default:
-      alert (' Please Tell Us What You Need, How We Can Help  You ?!');
+  default:
+    alert (' Please Tell Us What You Need, How We Can Help  You ?!');
     break;
 
   }
@@ -215,97 +221,92 @@ form.addEventListener('submit', handleSubmit);
 Plan.prototype.render = function () {
   var pEl = document.createElement('p');
   sectionEl.appendChild(pEl);
-  pEl.textContent = `Nice to meet you ${this.name}.`
+  pEl.textContent = `Nice to meet you ${this.name}.`;
 
   var pEl = document.createElement('p');
   sectionEl.appendChild(pEl);
-  pEl.textContent = `Depending on your information you need ${this.caloriesPerDay} calories a day`
+  pEl.textContent = `Depending on your information you need ${this.caloriesPerDay} calories a day`;
 
   var pEl = document.createElement('p');
   sectionEl.appendChild(pEl);
-  pEl.textContent = `Because you work ${this.activitiesHours} hour a day.`
+  pEl.textContent = `Because you work ${this.activitiesHours} hour a day.`;
 
   var pEl = document.createElement('p');
   sectionEl.appendChild(pEl);
-  pEl.textContent = `your perfect weight should be ${this.perfectWeight} kg.`
+  pEl.textContent = `your perfect weight should be ${this.perfectWeight} kg.`;
 
   var pEl = document.createElement('p');
   sectionEl.appendChild(pEl);
-  pEl.textContent = `To show you how much we love you and support your dicision here is our free workout for you ${this.name}.`
+  pEl.textContent = `To show you how much we love you and support your dicision here is our free workout for you ${this.name}.`;
   for (var i = 0; i <= workout.length - 1; i++) {
     var liEl = document.createElement('li');
-    liEl.textContent = (workout[i])
+    liEl.textContent = (workout[i]);
     sectionEl.appendChild(liEl);
   }
-  console.log(quantities)
-  // the chart function 
+
+  var liEl7 = document.createElement('li');
+  liEl7.textContent= `our last user : ${this.name}`;
+  sectionEl7.appendChild(liEl7);
+
+  console.log(quantities);
+  // the chart function
   // the chart function with 3 labels.
   var protein = quantities[0];
   var carbs = quantities[1];
   var fats = quantities[2];
-  console.log(protein);
+  console.log(Protein);
 
- 
+
   var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+  var myChart = new Chart(ctx, {
     type: 'bar',
     // labels: ['Protien', 'Carbs', 'Fat'],
     data: {
-        datasets: [{
-            label: 'protien',
-            data: [protein],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 206, 86, 1)',
-            ],
-            borderWidth: 1
-        },
-        {
-          label: 'carbs',
-          data: [carbs],
-          backgroundColor: [
-              'rgba(99, 180, 63, 0.2)'
-          ],
-          borderColor: [
-              'rgba(55, 6, 86, 1)',
-          ],
-          borderWidth: 1
+      datasets: [{
+        label: 'protien',
+        data: [protein],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 206, 86, 1)',
+        ],
+        borderWidth: 1
+      },
+      {
+        label: 'carbs',
+        data: [carbs],
+        backgroundColor: [
+          'rgba(99, 180, 63, 0.2)'
+        ],
+        borderColor: [
+          'rgba(55, 6, 86, 1)',
+        ],
+        borderWidth: 1
       },
       {
         label: 'Fat',
         data: [fats],
         backgroundColor: [
-            'rgba(150, 240, 232, 0.2)'
+          'rgba(150, 240, 232, 0.2)'
         ],
         borderColor: [
-            'rgba(255, 206, 86, 1)',
+          'rgba(255, 206, 86, 1)',
         ],
         borderWidth: 1
-    }
+      }
       ]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
-});
+  });
 
-  // Local storage
-  // function updateUsersName() {
-  //     var Users = JSON.stringify(Fitness);
-  //     localStorage.setItem("name", Users);
-  // }
-  // function getItem() {
-  //     var itemUsers = localStorage.getItem("name");
-  //     if (itemUsers) {
-  //         Fitness = JSON.parse(itemUsers);
-  //       }
-  //   }
-}
+};
+

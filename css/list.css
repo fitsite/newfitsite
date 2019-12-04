@@ -1,94 +1,140 @@
-body{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+
+main h1{
     text-align: center;
-    font-family: sans-serif;
-    background-color: black;
+    font-size: 40px;
+    padding: 10px 0px 20px 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-main{
-    width: 98%;
-    background-color: white;
+main h1:hover{
+    transition: 800ms;
+    color: red;
 }
-header{
-    background-color: white;
-    width: 98%;
+#a{
+    float: left;
+    font-family: 'Patrick Hand', cursive;
+    /* text-align: center; */
+    font-size: 20px;
+    margin-left: 430px;
+    border-collapse: collapse;
+    padding-top: 30px;
 }
-.form {
-    width: 500px;
-    position: relative;
-    height: 50px;
-    overflow: hidden; 
-    font-size: 15px;
-    font-weight: bold;
-    margin: 0 auto;
-    padding: 5px;
+#b{
+    float: right;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    /* border-collapse: collapse; */
+    margin-right: 430px;
 }
-.form input{
-width: 100%;
-height: 100%;
-color: #595f6e;
-padding-top: 20px;
-border: none;
-outline: none;
-
+#c{
+    float: left;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    /* border-collapse: collapse; */
+    margin-left: 362px;
+    padding-top: 30px;
 }
-.form label {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    border-bottom: 1px solid black;
+#d{
+    float: right;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    /* border-collapse: collapse; */
+    margin-right: 430px;
 }
-.form label::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-bottom: 2px solid #5fa8d3;
-    left: 0px;
-    bottom: -2px;
-    transform: translateX(-100%);
-    transition: all 0.3s ease;
+#e{
+    float: left;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    /* border-collapse: collapse; */
+    margin-left: 339px;
+    padding-top: 30px;
 }
-.content{
-    position: absolute;
-    bottom: 5px;
-    left: 0px;
-    transition: all 0.3s ease;
-}
-.form input:focus + .label .content, .form input:valid + .label .content{
-    transform: translateY(-150%);
-    font-size: 14px;
-    color: #5fa8d3;
-
-}
-.form input:focus + .label::after , .form input:valid + .label ::after{
-    transform: translateX(0%);
+#f{
+    float: right;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    border-collapse: collapse;
+    margin-right: 430px;
 }
 button{
-    background-color: black;
+    background-color: gray;
     color: white;
     width: 150px;
-    height: 25px;
+    height: 35px;
     border: none;
-}
-hr{
-    height: 3px solid black;
-}
-h1{
+    font-family: cursive;
+    margin-top: 50px;
     font-size: 20px;
+    margin-left: 670px;
+    cursor: pointer;
+}
+button:hover{
+    color: red;
+    transition: 900ms;
+}
+/* main{
+    width: 98%;
+    background-color: white;
+}
+.form {
+    text-align: center;
+    font-size: 15px;
+}
+ */
+ /* #fitPlan {
+	margin: 2em auto;
+	padding: 0;
+	max-width: 600px;
+	list-style: none;
+	height: 15em;
+}
+ */
+#fitPlan{
+	/* float: left;
+	width: 100px;
+	height: 100px;
+	margin: 0 5px;
+	background: #ccc;
+	text-align: center;
+	line-height: 100px; */
+	opacity: 0;
+	animation: fadeIn 3s ease-in both;
+}
+#a:nth-child(1) {
+	animation-delay: 2s;
+}
+#b:nth-child(2) {
+	animation-delay: 3s;
+}
+#c:nth-child(3) {
+	animation-delay: 4s;
+}
+#d:nth-child(4) {
+	animation-delay: 5s;
+}
+#e:nth-child(5) {
+	animation-delay: 6s;
+}
+#f:nth-child(6) {
+	animation-delay: 7s;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }
 #response{
-    font-family: sans-serif;
-    font-weight: bold;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    padding: 15px;
+    line-height: 50px;
+    font-size: x-large;
 }
-canvas{
-    width: 600px;
-    height: 400px;
-    border: 1px solid black;
-    margin: 0 auto;
+#response:hover{
+    transition: 900ms;
+    color: red;
 }
