@@ -7,7 +7,6 @@ var quantities = [];
 // var advices = [];
 var form = document.getElementById('fitPlan');
 var sectionEl = document.getElementById('response');
-var ctx = document.getElementById("chart").getContext("2d");
 // var sectionEl = document.getElementById('health');
 
 //  Constructor
@@ -192,41 +191,58 @@ Plan.prototype.render = function () {
   var carbs = quantities[1];
   var fats = quantities[2];
   console.log(protein);
-  var protiendata = {
-    label: "Protein",
-    data: protein,
-    backgroundcolor: "#f0f0f0",
-  }
-  var carbsdata = {
-    label: "carbs",
-    data: carbs,
-    Color: "#0f0f0f"
-  }
 
-  var fatsdata = {
-    label: "fats",
-    data: fats,
-    Color: "#11ff81"
-  }
-  var labelsInfo ={
-    labels: labels,
-    datasets: [protiendata, carbsdata, fatsdata]
-  }
-  var myChart = new Chart(ctx, {
-    type: "bar",
-    data: labelsInfo,
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
+ 
+  var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    // labels: ['Protien', 'Carbs', 'Fat'],
+    data: {
+        datasets: [{
+            label: 'protien',
+            data: [protein],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+          label: 'carbs',
+          data: [carbs],
+          backgroundColor: [
+              'rgba(99, 180, 63, 0.2)'
+          ],
+          borderColor: [
+              'rgba(55, 6, 86, 1)',
+          ],
+          borderWidth: 1
+      },
+      {
+        label: 'Fat',
+        data: [fats],
+        backgroundColor: [
+            'rgba(150, 240, 232, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 206, 86, 1)',
+        ],
+        borderWidth: 1
     }
-  });
-  
-
+      ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 
   // Local storage
   // function updateUsersName() {
