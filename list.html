@@ -5,8 +5,9 @@
     <title>Document</title>
     <!-- <link rel="stylesheet" href="css/reset.css"> -->
     <link rel="stylesheet" href="css/list.css">
-    <!-- <link rel="stylesheet" href="css/reset.css"> -->
     <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
 </head>
 
 <body>
@@ -19,7 +20,8 @@
         <form id="fitPlan">
 
             <div class="form">
-                <input type="text" name="name" autocomplete="off" required />
+                <!-- <input type="text" name="name" autocomplete="off" required /> -->
+                <input name="name" type="text" autocomplete="off" required onkeypress="return /[a-z]/i.test(event.key)" >
                 <label for="name" class="label"><span class="content">Name</span></label>
             </div>
             <br> <br>
@@ -48,7 +50,7 @@
             <br> <br>
             <div class="form">
                 <input type="text" name="target" id="target" autocomplete="off" required>
-                <label for="target" class="label"><span class="content">Target (Lose, gain or maintenance)</span></label>
+                <label for="target" class="label"><span class="content">Target (lose, gain or maintenance)</span></label>
             </div>
             <br> <br>
             <button type="submit">Submit</button>
@@ -58,9 +60,10 @@
         <section id="response">
 
         </section>
-
-
         </form>
+        <canvas id="chart" width="200px" height="150px"></canvas>
+
+
     </main>
 
 
