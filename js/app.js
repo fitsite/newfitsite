@@ -1,13 +1,18 @@
-'use strict';
+
+
+/////Global variable
+var targetPass;
+
 //  Array
 var calories = 0;
 var Fitness = [];
 var workout = [];
 var quantities = [];
+var advices = [];
 // var advices = [];
 var form = document.getElementById('fitPlan');
 var sectionEl = document.getElementById('response');
-// var sectionEl = document.getElementById('health');
+var sectionUl = document.getElementById('health');
 
 //  Constructor
 function Plan(name, age, weight, height, activitiesHours, target) {
@@ -17,6 +22,7 @@ function Plan(name, age, weight, height, activitiesHours, target) {
   this.height = height;
   this.activitiesHours = activitiesHours;
   this.target = target;
+  targetPass = this.target;
   this.perfectWeight = 0;
   this.caloriesPerDay = 0;
   Fitness.push(this);
@@ -80,32 +86,33 @@ var fats = 0;
 // function to calculate the Protein, carbohydrates and fats
 // var x;
 Plan.prototype.rateCalculate = function () {
-  // x = 10 ; 
+  // x = 10 ;
   // console.log(x);
   // this if statemennt work if the lose checkbox of the form is checked.
   // console.log(this.target);
-  if (this.target == 'lose' || this.target == 'l') {
+  if (this.target == 'lose' || this.target == 'l'){
     calories = this.caloriesPerDay - 200;
     Protein = (calories * 0.45) / 6;
     carbs = (calories * 0.45) / 6;
     fats = (calories * 0.10) / 9;
-    //  console.log(Protein,carbs,fats)
+  //  console.log(Protein,carbs,fats)
   }
   // this is work when the gain checkbox of the form is checked.
-  else if (this.target == 'gain' || this.target == 'g') {
-    calories = this.caloriesPerDay + 200;
-    Protein = (calories * 0.25) / 6;
+  else if (this.target == 'gain' || this.target == 'g'){
+    calories = this.caloriesPerDay + 200 ;
+    Protein = (calories * 0.25) / 6 ;
     carbs = (calories * 0.5) / 6;
-    fats = (calories * 0.25) / 9;
+    fats = (calories * 0.25) / 9 ;
   }
   // this is work when the maintenance checkbox of the form is checked.
-  else if (this.target == 'maintenance' || this.target == 'm') {
-    calories = this.caloriesPerDay;
+  else if (this.target == 'maintenance' || this.target == 'm'){
+    calories = this.caloriesPerDay ;
     Protein = (calories * 0.5) / 6;
     carbs = (calories * 0.4) / 6;
     fats = (calories * 0.1) / 9;
   }
-  // console.log(this.target) 
+
+  // console.log(this.target)
   // this array is the data input for the pie chart that we use to show the values needed on a daily bases.
   quantities.push(Protein, carbs, fats);
   console.log(Protein);
@@ -132,18 +139,64 @@ function handleSubmit(event) {
   var target = event.target.target.value;
   var newplan = new Plan(name, age, weight, height, activitiesHours, target);
   newplan.render();
-
   form.reset();
   ///////////CHANGES WERE MADE HERE/////////////////////////
   ///////////BUTTON ADDED
 
-  var buttonToHealth = document.createElement('button');
+
+  // if (target === 'lose') {
+  //   var sectionNew = document.getElementById('health');
+  //   var loseP = document.createElement('p');
+  //   loseP.textContent = 'TESTING OUR CONTENT I WANT TO LOSE WEIGHT';
+  //   sectionNew.appendChild(loseP);
+  //   console.log(loseP);}
+
+
+
+
+  // var buttonToHealth = document.createElement('button');
+
   // buttonToHealth.textContent = 'Take Your Advice';
-  sectionEl.appendChild(buttonToHealth);
-  var link = document.createElement('a');
-  link.setAttribute('href', 'health.html');
-  link.textContent = 'Take Your Advice';
-  buttonToHealth.appendChild(link);
+  switch (target) {
+  case 'lose':
+
+    var buttonToHealth = document.createElement('button');
+    sectionEl.appendChild(buttonToHealth);
+    var link = document.createElement('a');
+    link.textContent = 'To Lose weight >>';
+    link.setAttribute('href', 'lose.html');
+    buttonToHealth.appendChild(link);
+    break;
+
+
+  case 'gain':
+    var buttonToHealth = document.createElement('button');
+    sectionEl.appendChild(buttonToHealth);
+    var link = document.createElement('a');
+    link.textContent = ' Steps To How Gain weight>>';
+    link.setAttribute('href', 'gain.html');
+    buttonToHealth.appendChild(link);
+    break;
+
+     case 'maintenance':
+    var buttonToHealth = document.createElement('button');
+    sectionEl.appendChild(buttonToHealth);
+    var link = document.createElement('a');
+    link.textContent = 'How To Keep Fit >>';
+    link.setAttribute('href', 'main.html');
+    buttonToHealth.appendChild(link);
+    break;
+    default:
+      alert (' Please Tell Us What You Need, How We Can Help  You ?!');
+    break;
+
+  }
+  // var link = document.createElement('a');
+  // link.textContent = 'Take Your Advice';
+
+  /////if/switch (target === lose)
+  // link.setAttribute('href', 'health.html');
+  // buttonToHealth.appendChild(link);
   // buttonToHealth.setAttribute ('action',"health.html")
 
   ///////////CHANGES WERE MADE HERE/////////////////////////
