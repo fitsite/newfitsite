@@ -13,7 +13,7 @@ var advices = [];
 var form = document.getElementById('fitPlan');
 var sectionEl = document.getElementById('response');
 var sectionUl = document.getElementById('health');
-var sectionEl7 = document.getElementById('storage');
+// var sectionEl7 = document.getElementById('storage');
 
 //  Constructor
 function Plan(name, age, weight, height, activitiesHours, target) {
@@ -39,15 +39,15 @@ Plan.prototype.caloriesCalculation = function () {
   var calories = 0;
   if (this.activitiesHours <= 5) {
     calories = this.weight * 1.3;
-    this.caloriesPerDay = calories * 24;
+    this.caloriesPerDay = Math.floor(calories * 24);
   }
   if (5 < this.activitiesHours < 10) {
     calories = this.weight * 1.4;
-    this.caloriesPerDay = calories * 24;
+    this.caloriesPerDay = Math.floor(calories * 24);
   }
   if (this.activitiesHours >= 10) {
     calories = this.weight * 1.5;
-    this.caloriesPerDay = calories * 24;
+    this.caloriesPerDay = Math.floor(calories * 24);
   }
 };
 
@@ -67,7 +67,7 @@ Plan.prototype.programWorkOut = function () {
 
 // Function for suitable weight for the height
 Plan.prototype.suitableWeight = function () {
-  this.perfectWeight = (this.height - 1.02) * 100;
+  this.perfectWeight = Math.floor(this.height - 1.02) * 100;
   // var bmi = this.weight / (this.height * this.height);
   // console.log(this.height);
   // console.log(bmi);
@@ -123,11 +123,11 @@ Plan.prototype.rateCalculate = function () {
   // console.log('p', Protein, 'c', carbs, 'f', fats);
   // console.log(quantities)
 };
-var labels = ['Protein', 'Carbs', 'Fat'];
+// var labels = ['Protein', 'Carbs', 'Fat'];
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log("adsdsadsads111111ad")
+  // console.log("adsdsadsads111111ad")
   var name = event.target.name.value;
   var age = parseInt(event.target.age.value);
   var weight = parseInt(event.target.weight.value);
@@ -140,29 +140,11 @@ function handleSubmit(event) {
   var activitiesHours = parseInt(event.target.activitiesHours.value);
   var target = event.target.target.value;
   var newplan = new Plan(name, age, weight, height, activitiesHours, target);
-  localStorage.setItem("name",JSON.stringify(name));
+  // localStorage.setItem("name",JSON.stringify(name));
   newplan.render();
-  
-  form.reset();
-  // updateUsersName();
-  // console.log("adsdsadsadsad")
-  ///////////CHANGES WERE MADE HERE/////////////////////////
-  ///////////BUTTON ADDED
-  
-  
-  // if (target === 'lose') {
-    //   var sectionNew = document.getElementById('health');
-    //   var loseP = document.createElement('p');
-  //   loseP.textContent = 'TESTING OUR CONTENT I WANT TO LOSE WEIGHT';
-  //   sectionNew.appendChild(loseP);
-  //   console.log(loseP);}
 
+  // form.reset();
 
-
-
-  // var buttonToHealth = document.createElement('button');
-
-  // buttonToHealth.textContent = 'Take Your Advice';
   switch (target) {
   case 'lose':
 
@@ -175,7 +157,29 @@ function handleSubmit(event) {
     break;
 
 
+  case 'l':
+
+    var buttonToHealth = document.createElement('button');
+    sectionEl.appendChild(buttonToHealth);
+    var link = document.createElement('a');
+    link.textContent = 'To Lose weight >>';
+    link.setAttribute('href', 'lose.html');
+    buttonToHealth.appendChild(link);
+    break;
+
+
+
   case 'gain':
+    var buttonToHealth = document.createElement('button');
+    sectionEl.appendChild(buttonToHealth);
+    var link = document.createElement('a');
+    link.textContent = ' Steps To How Gain weight>>';
+    link.setAttribute('href', 'gain.html');
+    buttonToHealth.appendChild(link);
+    break;
+
+
+  case 'g':
     var buttonToHealth = document.createElement('button');
     sectionEl.appendChild(buttonToHealth);
     var link = document.createElement('a');
@@ -192,32 +196,28 @@ function handleSubmit(event) {
     link.setAttribute('href', 'main.html');
     buttonToHealth.appendChild(link);
     break;
+
+  case 'm':
+    var buttonToHealth = document.createElement('button');
+    sectionEl.appendChild(buttonToHealth);
+    var link = document.createElement('a');
+    link.textContent = 'How To Keep Fit >>';
+    link.setAttribute('href', 'main.html');
+    buttonToHealth.appendChild(link);
+    break;
+
+
   default:
-    alert (' Please Tell Us What You Need, How We Can Help  You ?!');
+    // alert (' Please Tell Us What You Need, How We Can Help  You ?!');
     break;
 
   }
-  // var link = document.createElement('a');
-  // link.textContent = 'Take Your Advice';
-
-  /////if/switch (target === lose)
-  // link.setAttribute('href', 'health.html');
-  // buttonToHealth.appendChild(link);
-  // buttonToHealth.setAttribute ('action',"health.html")
-
-  ///////////CHANGES WERE MADE HERE/////////////////////////
 }
 
 
-
-// caloriesCalculation();
-// suitableWeight();
-// rateCalculate();
-// programWorkOut();
-// console.log(this.target.lose.checked);
 form.addEventListener('submit', handleSubmit);
 
-//function for rendering
+
 Plan.prototype.render = function () {
   var pEl = document.createElement('p');
   sectionEl.appendChild(pEl);
@@ -244,13 +244,8 @@ Plan.prototype.render = function () {
     sectionEl.appendChild(liEl);
   }
 
-  var liEl7 = document.createElement('li');
-  liEl7.textContent= `our last user : ${this.name}`;
-  sectionEl7.appendChild(liEl7);
 
   console.log(quantities);
-  // the chart function
-  // the chart function with 3 labels.
   var protein = quantities[0];
   var carbs = quantities[1];
   var fats = quantities[2];
