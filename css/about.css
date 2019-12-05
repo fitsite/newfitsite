@@ -2,19 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Calistoga|Special+Elite&display=swap');
 
-html {
-    background-color: black;
-}
-/* header  {
-border-bottom: 3px solid rgb(139, 22, 22);
-font-size: 30px;
-padding-top: 100px;
-text-align: center;
-width: 250px;
-margin: 550px;
-margin-top: 10px;
-margin-bottom: 50px;
-} */
 
 header h1 {
     color: blanchedalmond;
@@ -56,8 +43,8 @@ header h1 {
     padding: 2px;
     /* background-color: rgb(192, 66, 66); */ 
     transition: transform .5s;
-    width: 200px;
-    height: 500px;
+    width: 150px;
+    height: 400px;
     margin: -100px auto;
     padding-top: 150px;
     
@@ -70,24 +57,8 @@ header h1 {
    
   }
 
-    
-        
-        
-    
-
-/* 
-  #info {
-      font-size: 30px;
-      height: 200px;
-  } */
-
-     
-
-
-
     .photos {
          display: inline-flex;
-         /* margin-left: 12%; */
          width: 500px;
          margin-top: 100px;
          
@@ -108,33 +79,21 @@ header h1 {
     }
 
          
-        footer {
-            background-color: black;
-        }
-
-
         #ahmad {
-        
         display: none;
-        /* padding-bottom: 100px; */
-        color: rgb(211, 196, 134);
-        /* background: rgb(19, 63, 63); */
-        /* padding: 100px; */
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 3px black;
         text-align: center;
         width: 250px;
         opacity: 90%;
-            font-size: 25px;
-
-        /* background-color: rgba(0, 0, 0, .5); */
+        font-size: 20px;
         filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
         font-family: 'Special Elite', cursive;
-        text-align: center;
+        /* margin-top: -100px; */
     }
        
        #mhasneh:hover + #ahmad {
         display: block;
-        
-
     }
 
 
@@ -142,16 +101,15 @@ header h1 {
 
       #abd{
         display: none;
-        color: rgb(211, 196, 134);
-        /* background: rgba(63, 19, 19); */
-        /* padding: 100px; */
-        text-align: right;
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 3px black;
+        text-align: center;
         width: 250px;
         opacity: 90%;
-        font-size: 25px;
+        font-size: 20px;
         filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
         font-family: 'Special Elite', cursive;
-        text-align: center;
+        /* margin-top: -100px; */
     }
 
       #hrasis:hover + #abd {
@@ -167,16 +125,15 @@ header h1 {
      #duaa{
 
         display: none;
-        color: rgb(211, 196, 134);
-        /* background: rgba(63, 19, 19); */
-        /* padding: 100px; */
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 3px black;
         text-align: center;
         width: 250px;
         opacity: 90%;
-        font-size: 25px;
+        font-size: 20px;
         filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
         font-family: 'Special Elite', cursive;
-        text-align: center;
+        /* margin-top: -100px; */
      }
        
 
@@ -191,16 +148,15 @@ header h1 {
     #amer{
 
         display: none;
-        color: rgb(211, 196, 134);
-        /* background: rgba(63, 19, 19); */
-        /* padding: 100px; */
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 3px black;
         text-align: center;
         width: 250px;
         opacity: 90%;
-        font-size: 25px;
+        font-size: 20px;
         filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
         font-family: 'Special Elite', cursive;
-        text-align: center;
+        /* margin-top: -100px; */
     }
 
 
@@ -213,16 +169,15 @@ header h1 {
 
     #saya {
         display: none;
-        color:rgb(211, 196, 134);
-        /* background: rgba(63, 19, 19); */
-        /* padding: 100px; */
-        text-align: right;
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 3px black;
+        text-align: center;
         width: 250px;
         opacity: 90%;
-        font-size: 25px;
+        font-size: 20px;
         filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
         font-family: 'Special Elite', cursive;
-        text-align: center;
+        /* margin-top: -100px; */
      }
 
      #qrarah:hover + #saya {
@@ -233,9 +188,20 @@ header h1 {
 
 
 
+     #heloo{
+         color: #e1183a;
+         text-align: center;
+         font-size: 50px;
+         margin-top: 5%;
+     }
 
+     main{
+        animation: fadein 10s;
 
+     }
 
-
-
-        
+     @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    
+    }
