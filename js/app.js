@@ -67,7 +67,7 @@ Plan.prototype.programWorkOut = function () {
 
 // Function for suitable weight for the height
 Plan.prototype.suitableWeight = function () {
-  this.perfectWeight = Math.floor(this.height - 1.02) * 100;
+  this.perfectWeight = (this.height - 1.02) * 100;
   // var bmi = this.weight / (this.height * this.height);
   // console.log(this.height);
   // console.log(bmi);
