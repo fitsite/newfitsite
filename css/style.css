@@ -427,6 +427,10 @@ margin: 10px;
  /* margin-left: 250px; */
 /* padding-left: 100px;  */
 }
+.a{
+    height: 20px;
+    width: 20px;
+}
 .a:hover{
     filter: drop-shadow(0 0 0.85rem rgb(247, 6, 6));
 
