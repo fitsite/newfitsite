@@ -75,11 +75,12 @@ header h1 {
 
     .photos {
         background-image: url(/img/123.jpg) ;
-        background-image: no-repeat;
+        /* background-image: no-repeat; */
         background-size: 100%;
         width: 90%;
         height: 600px;
         margin-left: 100px;
+        
     }
 
          
